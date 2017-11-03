@@ -17,6 +17,12 @@ using pub_location_handler_type = osmium::handler::NodeLocationsForWays<pub_inde
 #include <iostream>
 #include <cstring>
 
+#include <bsoncxx/json.hpp>
+#include <mongocxx/client.hpp>
+#include <mongocxx/instance.hpp>
+#include <mongocxx/stdx.hpp>
+#include <mongocxx/uri.hpp>
+
 /**
  * @brief The PubParser class
  * amenity -> pub, bar, biergarten, cafe, fast_food, food_court, ice_cream, restaurant
@@ -24,7 +30,16 @@ using pub_location_handler_type = osmium::handler::NodeLocationsForWays<pub_inde
  */
 class PubParser : public osmium::handler::Handler {
     osmium::geom::WKTFactory<> m_factory;
+    mongocxx::instance instance{};
+    mongocxx::client client{mongocxx::uri{"mongodb://localhost:27017"}};
+    mongocxx::database database;
+    mongocxx::collection collection;
 public:
+    PubParser()
+        : database(client["event_manager"]),
+          collection(db["event_location"])
+    {}
+
     void node(const osmium::Node & currentNode) {
         const osmium::TagList & tags = currentNode.tags();
 
