@@ -14,10 +14,9 @@ import { routing }        from './app.routing';
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
 import { AlertService, AuthenticationService, UserService } from './_services/index';
-import { HomeComponent } from './home/index';
-import { LandingComponent } from './landing/index';
-import { LoginComponent } from './login/index';
-import { RegisterComponent } from './register/index';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
     imports: [
@@ -31,7 +30,6 @@ import { RegisterComponent } from './register/index';
         AlertComponent,
         HomeComponent,
         LoginComponent,
-        LandingComponent,
         RegisterComponent
     ],
     providers: [
