@@ -1,20 +1,20 @@
 package com.r0lex.eventmanager.model.database;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
+import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Data
+@Setter
+@Getter
+@ToString
 @Document(collection = "location")
 public class Location {
     @Id
     private ObjectId _id;
     private String name;
     private String amenity;
-    @JsonProperty("point_wkt")
-    private String pointWkt;
+    private String point_wkt;
     private String postcode;
     private String city;
     private String street;

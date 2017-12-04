@@ -7,14 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
-@RestController
+@RestController("/event/")
 public class EventController {
-
-    @Autowired
-    private LocationsRepository eventLocationsRepository;
-
-    @GetMapping("/event/all")
-    public Flux<Location> getAllEventLocations() {
-        return eventLocationsRepository.findAll();
-    }
 }

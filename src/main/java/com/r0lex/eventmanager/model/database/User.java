@@ -3,8 +3,7 @@ package com.r0lex.eventmanager.model.database;
 import lombok.Data;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
 
 @Data
 @Document(collection = "user")
