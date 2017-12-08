@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.config.AbstractReactiveMongoConfiguratio
 import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
 
 @Configuration
-@EnableReactiveMongoRepositories(basePackageClasses = LocationsRepository.class)
+@EnableReactiveMongoRepositories(basePackages = {"com.r0lex.eventmanager.repository"})
 public class MongoConfig extends AbstractReactiveMongoConfiguration{
     @Override
     protected String getDatabaseName() {

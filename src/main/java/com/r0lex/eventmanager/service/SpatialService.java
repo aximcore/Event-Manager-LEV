@@ -3,10 +3,12 @@ package com.r0lex.eventmanager.service;
 import com.esri.core.geometry.Geometry;
 import com.esri.core.geometry.OperatorImportFromWkt;
 import com.esri.core.geometry.WktImportFlags;
+import com.github.davidmoten.grumpy.core.Position;
 import com.github.davidmoten.rtree.Entry;
 import com.github.davidmoten.rtree.RTree;
 import com.github.davidmoten.rtree.geometry.Geometries;
 import com.github.davidmoten.rtree.geometry.Point;
+import com.github.davidmoten.rtree.geometry.Rectangle;
 import com.r0lex.eventmanager.model.database.Location;
 import com.r0lex.eventmanager.repository.LocationsRepository;
 import org.bson.types.ObjectId;
@@ -21,6 +23,7 @@ import rx.Observable;
 import rx.Single;
 
 import javax.annotation.PostConstruct;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -40,22 +43,51 @@ public class SpatialService {
         System.out.println("[SpatialService]Create Rtree!");
 
         locationsRepository.findAll()
+                .doOnComplete(() -> System.out.println("[SpatialService]Rtree Size: " + rtree.size()))
                 .subscribe(location -> {
                     com.esri.core.geometry.Point point = (com.esri.core.geometry.Point)
                             OperatorImportFromWkt.local()
                                     .execute(WktImportFlags.wktImportDefaults,
                                             Geometry.Type.Point, location.getPoint_wkt(), null);
                     rtree = rtree.add(location.get_id(), Geometries.point(point.getX(), point.getY())); });
-
-        System.out.println("[SpatialService]Rtree Size: " + rtree.size());
     }
 
-    public List<Location> getCloserAmenities(Point gpsPoint, Double maxDistance) {
+    private Observable<Location> searchCloserPlaces(final Point gpsPoint,
+                                                               final Double searchDistanceInKm) {
+        final Position from = Position.create(gpsPoint.y(), gpsPoint.x());
+        final Rectangle bound = createBounds(from, searchDistanceInKm);
         return rtree
-                .search(gpsPoint, maxDistance)
-                .map(entry -> locationsRepository.findBy_id(entry.value()).block())
+                .search(bound)
+                .filter(objectIdPointEntry -> {
+                    Point p = objectIdPointEntry.geometry();
+                    Position pos = Position.create(p.y(), p.x());
+                    return from.getDistanceToKm(pos) < searchDistanceInKm;
+                })
+                .map(entry -> locationsRepository.findBy_id(entry.value()).block());
+    }
+
+    public List<Location> getCloserPlaces(final Point gpsPoint, final Double searchDistanceInKm) {
+        return searchCloserPlaces(gpsPoint, searchDistanceInKm)
                 .toList()
                 .toBlocking()
                 .single();
+    }
+
+    public List<Location> getCloserPlacesByCategory(final Point gpsPoint,
+                                                    final Double searchDistanceInKm,
+                                                    final String category) {
+        return searchCloserPlaces(gpsPoint, searchDistanceInKm)
+                .filter(location -> location.getAmenity().contentEquals(category))
+                .toList()
+                .toBlocking()
+                .single();
+    }
+
+    private static Rectangle createBounds(@NotNull final Position from, final double distanceKm) {
+        Position north = from.predict(distanceKm, 0);
+        Position south = from.predict(distanceKm, 180);
+        Position east = from.predict(distanceKm, 90);
+        Position west = from.predict(distanceKm, 270);
+        return Geometries.rectangle(west.getLon(), south.getLat(), east.getLon(), north.getLat());
     }
 }
