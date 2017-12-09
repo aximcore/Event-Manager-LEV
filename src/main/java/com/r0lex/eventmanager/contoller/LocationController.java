@@ -16,10 +16,10 @@ import java.util.Optional;
 @RequestMapping("/location")
 public class LocationController {
     @Autowired
-    SpatialService spatialService;
+    private SpatialService spatialService;
 
     @GetMapping
-    Flux<Location> indexPageWithDistance(
+    public Flux<Location> indexPageWithDistance(
                     @RequestParam("latitude") double latitude,
                     @RequestParam("longitude") double longitude,
                     @RequestParam("distance") double distance,
@@ -33,5 +33,15 @@ public class LocationController {
             return Flux.fromIterable(spatialService.getCloserPlaces(
                     Geometries.point(longitude, latitude),distance
             ));
+    }
+
+    @GetMapping("/all")
+    public Flux<Location> getLocations() {
+        return spatialService.getLocations();
+    }
+
+    @GetMapping("/find")
+    public Flux<Location> getLocationsByName(@RequestParam("name") String name) {
+        return spatialService.getLocationByName(name);
     }
 }

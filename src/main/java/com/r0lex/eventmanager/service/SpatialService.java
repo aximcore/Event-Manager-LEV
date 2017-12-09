@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
+import reactor.core.publisher.Flux;
 import rx.Observable;
 import rx.Single;
 
@@ -64,6 +65,14 @@ public class SpatialService {
                     return from.getDistanceToKm(pos) < searchDistanceInKm;
                 })
                 .map(entry -> locationsRepository.findBy_id(entry.value()).block());
+    }
+
+    public Flux<Location> getLocations() {
+        return locationsRepository.findAll();
+    }
+
+    public Flux<Location> getLocationByName(final String name) {
+        return locationsRepository.findAllByNameContains(name);
     }
 
     public List<Location> getCloserPlaces(final Point gpsPoint, final Double searchDistanceInKm) {
