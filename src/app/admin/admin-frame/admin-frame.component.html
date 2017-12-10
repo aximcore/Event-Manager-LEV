@@ -1,0 +1,34 @@
+<main>
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">Event manager admin</h1>
+    <button mat-icon-button (click)="logOut()" class="logout"><mat-icon>exit_to_app</mat-icon></button>
+  </mat-toolbar>
+
+  <mat-sidenav-container>
+    <mat-sidenav #snav mode="side" opened="true">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/admin/locations">
+          <mat-icon matListIcon>location_on</mat-icon>
+          <span>Locations</span>
+        </a>
+        <a mat-list-item routerLink="/admin/events">
+          <mat-icon matListIcon>event</mat-icon>
+          <span>Events</span>
+        </a>
+        <a mat-list-item routerLink="/admin/perfomers">
+          <mat-icon matListIcon>library_music</mat-icon>
+          <span>Performers</span>
+        </a>
+        <a mat-list-item routerLink="/admin/news">
+          <mat-icon matListIcon>chrome_reader_mode</mat-icon>
+          <span>News</span>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</main>
