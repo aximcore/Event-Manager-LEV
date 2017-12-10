@@ -6,17 +6,21 @@ import {AdminModule} from './admin';
 import {AppComponent} from './app.component';
 import {routing} from './app.routing';
 import {HomeComponent} from './home/home.component';
+import {HttpClientModule} from '@angular/common/http';
+import { FrameComponent } from './frame/frame.component';
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         AdminModule,
+        HttpClientModule,
         routing
     ],
     declarations: [
         AppComponent,
-        HomeComponent
+        HomeComponent,
+        FrameComponent
     ],
     providers: [
     ],

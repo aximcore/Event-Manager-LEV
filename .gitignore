@@ -46,3 +46,6 @@ app/**/*.js.map
 
 # Idea
 .idea
+
+# Angular dist
+dist

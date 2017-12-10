@@ -6,10 +6,13 @@ import {AdminComponent} from './admin/admin.component';
 import {AdminLoginComponent} from './admin/admin-login/admin-login.component';
 import {AdminLocationsComponent} from './admin/admin-locations/admin-locations.component';
 import {AdminFrameComponent} from './admin/admin-frame/admin-frame.component';
+import {FrameComponent} from './frame/frame.component';
 
 const appRoutes: Routes = [
     {
-        path: '', component: HomeComponent, children: []
+        path: '', component: FrameComponent, children: [
+            {path: '', component: HomeComponent}
+        ]
     },
     {
         path: 'admin', component: AdminComponent, children: [
