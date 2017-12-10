@@ -10,7 +10,6 @@ import {
     MatToolbarModule
 } from '@angular/material';
 
-import {AdminComponent} from './admin.component';
 import {AdminGuard, AdminInverseGuard} from './guards';
 import {AdminLoginComponent} from './admin-login/admin-login.component';
 import {AdminLocationsComponent} from './admin-locations/admin-locations.component';
@@ -18,7 +17,6 @@ import {AdminFrameComponent} from './admin-frame/admin-frame.component';
 
 @NgModule({
     exports: [
-        AdminComponent,
         AdminLoginComponent,
         AdminLocationsComponent,
         AdminFrameComponent
@@ -41,7 +39,6 @@ import {AdminFrameComponent} from './admin-frame/admin-frame.component';
         MatListModule,
     ],
     declarations: [
-        AdminComponent,
         AdminLoginComponent,
         AdminLocationsComponent,
         AdminFrameComponent

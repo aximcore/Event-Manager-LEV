@@ -2,7 +2,6 @@
 
 import {HomeComponent} from './home/home.component';
 import {AdminGuard, AdminInverseGuard} from './admin/guards';
-import {AdminComponent} from './admin/admin.component';
 import {AdminLoginComponent} from './admin/admin-login/admin-login.component';
 import {AdminLocationsComponent} from './admin/admin-locations/admin-locations.component';
 import {AdminFrameComponent} from './admin/admin-frame/admin-frame.component';
@@ -15,7 +14,7 @@ const appRoutes: Routes = [
         ]
     },
     {
-        path: 'admin', component: AdminComponent, children: [
+        path: 'admin', children: [
             {
                 path: '', component: AdminFrameComponent, canActivate: [AdminGuard], children: [
                     {path: '', redirectTo: '/admin/locations', pathMatch: 'full'},
