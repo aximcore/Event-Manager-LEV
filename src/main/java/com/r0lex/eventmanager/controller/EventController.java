@@ -22,7 +22,7 @@ public class EventController {
     public void createEvent() {
         // TEST
         Event event = new Event();
-        event.setLocationId(new ObjectId("5a09ed26e2c1d977cf2f10f2"));
+        event.setLocationId("5a09ed26e2c1d977cf2f10f2");
         event.setEndDate(LocalDateTime.now());
         event.setStartDate(LocalDateTime.now());
         event.setName("TiszaNekeresd");

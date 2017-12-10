@@ -14,7 +14,7 @@ public class EventService {
     @Autowired
     private EventRepository eventRepository;
 
-    public Flux<Event> getEventsByPlace(ObjectId locationId, Optional<Integer> limit) {
+    public Flux<Event> getEventsByPlace(String locationId, Optional<Integer> limit) {
         if (limit.isPresent()) {
             return eventRepository.findByLocationId(locationId)
                     .sort(Event::compareByStartDate)

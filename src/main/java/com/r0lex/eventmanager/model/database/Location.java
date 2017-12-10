@@ -2,8 +2,6 @@ package com.r0lex.eventmanager.model.database;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Setter
@@ -12,8 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "location")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Location {
-    @Id
-    private ObjectId _id;
+    private String id;
     private String name;
     private String amenity;
     private String point_wkt;

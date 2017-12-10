@@ -33,7 +33,7 @@ import java.util.List;
 public class SpatialService {
     @Autowired
     private LocationsRepository locationsRepository;
-    private RTree<ObjectId, Point> rtree = RTree.star().create();
+    private RTree<String, Point> rtree = RTree.star().create();
 
     @EventListener
     public void handleContextRefresh(ContextRefreshedEvent event) {
@@ -50,7 +50,7 @@ public class SpatialService {
                             OperatorImportFromWkt.local()
                                     .execute(WktImportFlags.wktImportDefaults,
                                             Geometry.Type.Point, location.getPoint_wkt(), null);
-                    rtree = rtree.add(location.get_id(), Geometries.point(point.getX(), point.getY())); });
+                    rtree = rtree.add(location.getId(), Geometries.point(point.getX(), point.getY())); });
     }
 
     private Observable<Location> searchCloserPlaces(final Point gpsPoint,
@@ -64,7 +64,7 @@ public class SpatialService {
                     Position pos = Position.create(p.y(), p.x());
                     return from.getDistanceToKm(pos) < searchDistanceInKm;
                 })
-                .map(entry -> locationsRepository.findBy_id(entry.value()).block());
+                .map(entry -> locationsRepository.findById(entry.value()).block());
     }
 
     public Flux<Location> getLocations() {
