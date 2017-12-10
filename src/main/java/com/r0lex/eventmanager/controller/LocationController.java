@@ -1,4 +1,4 @@
-package com.r0lex.eventmanager.contoller;
+package com.r0lex.eventmanager.controller;
 
 import com.github.davidmoten.rtree.geometry.Geometries;
 import com.r0lex.eventmanager.model.database.Location;

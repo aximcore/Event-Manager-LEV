@@ -1,4 +1,4 @@
-package com.r0lex.eventmanager.contoller;
+package com.r0lex.eventmanager.controller;
 
 import com.r0lex.eventmanager.model.database.Event;
 import com.r0lex.eventmanager.service.EventService;
