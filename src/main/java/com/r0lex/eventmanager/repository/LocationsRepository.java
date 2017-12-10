@@ -11,6 +11,6 @@ import reactor.core.publisher.Mono;
 public interface LocationsRepository extends ReactiveMongoRepository<Location, String> {
     Flux<Location> findAllByAmenity(String amenity);
     Mono<Location> findBy_id(ObjectId _id);
-    Flux<Location> findAllByNameContains(String name);
+    Flux<Location> findAllByNameContainsIgnoreCase(String name);
     Flux<Location> findAllByCityContains(String city);
 }

@@ -72,7 +72,7 @@ public class SpatialService {
     }
 
     public Flux<Location> getLocationByName(final String name) {
-        return locationsRepository.findAllByNameContains(name);
+        return locationsRepository.findAllByNameContainsIgnoreCase(name);
     }
 
     public List<Location> getCloserPlaces(final Point gpsPoint, final Double searchDistanceInKm) {
