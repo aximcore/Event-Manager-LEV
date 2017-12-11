@@ -39,7 +39,7 @@ class PubParser : public osmium::handler::Handler {
 public:
     PubParser()
         : database(client["event_manager"]),
-          collection(database["event_location"])
+          collection(database["location"])
     {}
 
     void node(const osmium::Node & currentNode) {

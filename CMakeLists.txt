@@ -43,6 +43,7 @@ include_directories(
         )
 
 add_executable(${PROJECT_NAME}
+    "city_parser.h"
     "pub_parser.h"
     "main.cpp")
 target_link_libraries(
