@@ -26,7 +26,7 @@ public class EventService {
     }
 
     public void setEvent(Event event) {
-        eventRepository.insert(Mono.just(event));
+        eventRepository.save(event).subscribe();
     }
 
     public Flux<Event> getEvents() {
