@@ -8,7 +8,8 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
-        "favicon.ico"
+        "favicon.ico",
+        "img/icons"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -18,9 +19,17 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "style.css"
+        "assets/css/reset.css",
+        "style.css",
+        "assets/css/main.css",
+        "assets/css/main-responsive.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "assets/js/jquery.nicescroll.js",
+        "assets/js/jquery.parallax.js",
+        "assets/js/jquery.sticky.js",
+        "assets/js/script.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
