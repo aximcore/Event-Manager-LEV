@@ -2,8 +2,10 @@ package com.r0lex.eventmanager.model.database;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -21,4 +23,6 @@ public class User {
     private List<String> favoriteEvents;
     private double lastLongitude;
     private double lastLatitude;
+    @CreatedDate
+    private LocalDateTime createdDate;
 }
