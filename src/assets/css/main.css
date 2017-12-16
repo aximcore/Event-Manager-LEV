@@ -81,15 +81,15 @@ h1 span{
 }
 
 .start-page .content .text .read-more{
-  width:183px;
-  height:47px;
-  margin:50px auto;
-  line-height:47px;
+  /*width:183px;*/
+  /*height:47px;*/
+  margin:20px auto;
+  /*line-height:47px;*/
   border:1px solid white;
   text-transform:uppercase;
   color:white;
   cursor:pointer;
-  font-size:19px;
+  /*font-size:19px;*/
   background:none;
   -webkit-transition: all 0.2s ease-in;
 	-moz-transition: all 0.2s ease-in;
@@ -573,4 +573,16 @@ textarea{
   line-height:90px;
   padding-right:25px;
   color:#5f666e;
+}
+
+/**
+    Login / Register modal style
+ */
+
+.dark-modal .modal-content {
+  background-color: #2f363e;
+  color: white;
+}
+.dark-modal .close {
+  color: white;
 }

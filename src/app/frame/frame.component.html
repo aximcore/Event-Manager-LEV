@@ -11,9 +11,28 @@
                         <span>dolor sit</span></h1>
                     <p>Amet sit consititeu</p>
 
-                    <a href="#about-us">
+                    <!--<a href="#about-us">
                         <div class="read-more">Lorem</div>
-                    </a>
+                    </a>-->
+
+                    <ng-template #login let-c="close" let-d="dismiss">
+                        <div id="login-modal">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Modal title</h4>
+                                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <app-frame-login></app-frame-login>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-light" (click)="c('Close click')">Close</button>
+                            </div>
+                        </div>
+                    </ng-template>
+
+                    <button class="btn-outline-primary btn read-more" (click)="open(login)">Login</button>
 
                 </div>
                 <div class="arrow-down"></div>
@@ -61,6 +80,7 @@
                     <li><a href="#about-us">Lorem</a></li>
                     <li><a href="#">Ipsum</a></li>
                     <li><a href="#">Dolor</a></li>
+                    <li *ngIf="loggedIn" ><button mat-icon-button (click)="logOut()" class="logout"><mat-icon>exit_to_app</mat-icon></button></li>
                 </ul>
             </div>
 

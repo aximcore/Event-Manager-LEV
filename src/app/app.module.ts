@@ -8,23 +8,47 @@ import {routing} from './app.routing';
 import {HomeComponent} from './home/home.component';
 import {LocationService} from './service';
 import {HttpClientModule} from '@angular/common/http';
-import { FrameComponent } from './frame/frame.component';
+import {FrameComponent} from './frame/frame.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {FrameLoginComponent} from './frame/frame-login/frame-login.component';
+import {
+    MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatPaginatorModule, MatSidenavModule,
+    MatSortModule, MatTableModule,
+    MatToolbarModule
+} from '@angular/material';
+import {FrameRegisterComponent} from './frame/frame-register/frame-register.component';
+import {UserService} from './service/user.service';
 
 @NgModule({
     imports: [
         BrowserModule,
+        NgbModule.forRoot(),
         FormsModule,
         AdminModule,
         HttpClientModule,
-        routing
+        routing,
+        MatButtonModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatPaginatorModule,
+        MatSidenavModule,
+        MatSortModule,
+        MatTableModule,
+        MatListModule,
     ],
     declarations: [
         AppComponent,
         HomeComponent,
-        FrameComponent
+        FrameComponent,
+        FrameLoginComponent,
+        FrameRegisterComponent
     ],
     providers: [
-        LocationService
+        LocationService,
+        UserService
     ],
     bootstrap: [AppComponent]
 })

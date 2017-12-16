@@ -1,0 +1,14 @@
+<mat-card>
+    <form (ngSubmit)="onSubmit()">
+        <mat-card-title>Log In</mat-card-title>
+        <mat-card-content>
+            <mat-form-field>
+                <input matInput [(ngModel)]="username" name="username" placeholder="Username" value="" autofocus>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="password" name="password" type="password" placeholder="Password" value="">
+            </mat-form-field>
+            <button mat-raised-button>Log In</button>
+        </mat-card-content>
+    </form>
+</mat-card>
