@@ -18,10 +18,12 @@ public class AuthenticationManager implements ReactiveAuthenticationManager {
         String username = (String) authentication.getPrincipal();
         String password = (String) authentication.getCredentials();
 
+        System.out.println("authenticate");
 
         // TODO: Check credentials and generate Bearer Token
 
         Set<SimpleGrantedAuthority> authorities = Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
+
         return Mono.just(new UsernamePasswordAuthenticationToken(username, password, authorities));
     }
 

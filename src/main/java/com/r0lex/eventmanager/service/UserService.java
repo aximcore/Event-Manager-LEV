@@ -5,6 +5,7 @@ import com.r0lex.eventmanager.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Mono;
 
 @Service("userDetailsService")
 public class UserService {
@@ -12,9 +13,16 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User loadUserByUsername(String username) throws UsernameNotFoundException {
+    public void setUser(User user) {
+        userRepository.save(user).subscribe();
+    }
 
+    public Mono<User> loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findOneByUsername(username);
+    }
+
+    public Mono<User> loadUserByToken(String token) {
+        return userRepository.findOneByToken(token);
     }
 
 }

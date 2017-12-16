@@ -1,6 +1,8 @@
 package com.r0lex.eventmanager.config;
 
 import com.r0lex.eventmanager.model.database.User;
+import com.r0lex.eventmanager.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -14,6 +16,9 @@ import reactor.core.publisher.Mono;
 @Component
 public class SecurityContextRepository implements ServerSecurityContextRepository {
 
+    @Autowired
+    UserService userService;
+
     @Override
     public Mono<Void> save(ServerWebExchange serverWebExchange, SecurityContext securityContext) {
         return Mono.empty();
@@ -21,10 +26,12 @@ public class SecurityContextRepository implements ServerSecurityContextRepositor
 
     @Override
     public Mono<SecurityContext> load(ServerWebExchange serverWebExchange) {
+        String token = serverWebExchange.getRequest().getHeaders().get("Authorization").get(0);
 
-        // TODO: check Bearer Token
+        User user = userService.loadUserByToken(token).block();
+        Authentication authentication = new AnonymousAuthenticationToken("authenticated-user", user, AuthorityUtils.createAuthorityList(user.getRole()));
+        authentication.setAuthenticated(user == null ? false : true);
 
-        Authentication authentication = new AnonymousAuthenticationToken("authenticated-user", new User(),  AuthorityUtils.createAuthorityList("ADMIN") );
         return Mono.just(new SecurityContextImpl(authentication));
     }
 }
