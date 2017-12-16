@@ -12,4 +12,6 @@ public class News {
     private String title;
     private String content;
     private LocalDateTime time;
+    private String performerId;
+    private String eventId;
 }
