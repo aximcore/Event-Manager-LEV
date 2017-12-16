@@ -75,21 +75,23 @@ public class SpatialService {
         return locationsRepository.findAllByNameContainsIgnoreCase(name);
     }
 
-    public List<Location> getCloserPlaces(final Point gpsPoint, final Double searchDistanceInKm) {
-        return searchCloserPlaces(gpsPoint, searchDistanceInKm)
+    public Flux<Location> getCloserPlaces(final Point gpsPoint, final Double searchDistanceInKm) {
+        return Flux.fromIterable(searchCloserPlaces(gpsPoint, searchDistanceInKm)
                 .toList()
                 .toBlocking()
-                .single();
+                .single()
+        );
     }
 
-    public List<Location> getCloserPlacesByCategory(final Point gpsPoint,
+    public Flux<Location> getCloserPlacesByCategory(final Point gpsPoint,
                                                     final Double searchDistanceInKm,
                                                     final String category) {
-        return searchCloserPlaces(gpsPoint, searchDistanceInKm)
+        return Flux.fromIterable(searchCloserPlaces(gpsPoint, searchDistanceInKm)
                 .filter(location -> location.getAmenity().contentEquals(category))
                 .toList()
                 .toBlocking()
-                .single();
+                .single()
+        );
     }
 
     private static Rectangle createBounds(@NotNull final Position from, final double distanceKm) {

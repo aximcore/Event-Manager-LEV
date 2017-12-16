@@ -26,13 +26,13 @@ public class LocationController {
                     @RequestParam("category") Optional<String> category) {
 
         if (category.isPresent())
-            return Flux.fromIterable(spatialService.getCloserPlacesByCategory(
+            return spatialService.getCloserPlacesByCategory(
                     Geometries.point(longitude, latitude),distance, category.get()
-            ));
+            );
         else
-            return Flux.fromIterable(spatialService.getCloserPlaces(
+            return spatialService.getCloserPlaces(
                     Geometries.point(longitude, latitude),distance
-            ));
+            );
     }
 
     @GetMapping("/all")

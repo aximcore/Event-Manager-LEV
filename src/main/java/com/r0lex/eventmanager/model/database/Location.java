@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Setter
-@Getter
-@ToString
+@Data
 @Document(collection = "location")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Location {
