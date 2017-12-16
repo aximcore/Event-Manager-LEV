@@ -13,6 +13,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+
 @Component
 public class SecurityContextRepository implements ServerSecurityContextRepository {
 
@@ -26,9 +28,20 @@ public class SecurityContextRepository implements ServerSecurityContextRepositor
 
     @Override
     public Mono<SecurityContext> load(ServerWebExchange serverWebExchange) {
+        if (!serverWebExchange.getRequest().getHeaders().containsKey("Authorization"))
+            return Mono.empty();
+
+        List<String> tokenList = serverWebExchange.getRequest().getHeaders().get("Authorization");
+
+        if (tokenList.isEmpty())
+            return Mono.empty();
+
         String token = serverWebExchange.getRequest().getHeaders().get("Authorization").get(0);
 
         User user = userService.loadUserByToken(token).block();
+        if (user == null)
+            return Mono.empty();
+
         Authentication authentication = new AnonymousAuthenticationToken("authenticated-user", user, AuthorityUtils.createAuthorityList(user.getRole()));
         authentication.setAuthenticated(user == null ? false : true);
 

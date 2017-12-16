@@ -18,7 +18,7 @@ public class EventController {
     @Autowired
     private EventService eventService;
 
-    @PostMapping("/insert")
+    @PostMapping
     public void createEvent(@RequestBody Event event) {
         eventService.setEvent(event);
     }
@@ -33,7 +33,7 @@ public class EventController {
         return eventService.getEventById(id);
     }
 
-    @GetMapping
+    @GetMapping("/coordinate")
     public Flux<Event> getEventsByCoordinate(@RequestParam("latitude") double latitude,
                                              @RequestParam("longitude") double longitude,
                                              @RequestParam("distance") double distance,
@@ -42,7 +42,7 @@ public class EventController {
         return eventService.getEventsByCoordinate(latitude, longitude, distance, category);
     }
 
-    @GetMapping
+    @GetMapping("/location")
     public Flux<Event> getEventsByLocation(@RequestParam("location") String location,
                                         @RequestParam(required=false, name = "limit") Optional<Integer> limit) {
         return eventService.getEventsByPlace(location, limit);
