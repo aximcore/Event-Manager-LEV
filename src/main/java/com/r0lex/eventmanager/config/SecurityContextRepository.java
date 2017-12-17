@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.context.ReactiveSecurityContextHolder;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.security.web.server.context.ServerSecurityContextRepository;
@@ -43,7 +44,7 @@ public class SecurityContextRepository implements ServerSecurityContextRepositor
             return Mono.empty();
 
         Authentication authentication = new AnonymousAuthenticationToken("authenticated-user", user, AuthorityUtils.createAuthorityList(user.getRole()));
-        authentication.setAuthenticated(user == null ? false : true);
+        authentication.setAuthenticated(true);
 
         return Mono.just(new SecurityContextImpl(authentication));
     }

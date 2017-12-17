@@ -2,6 +2,7 @@ package com.r0lex.eventmanager.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
@@ -24,10 +25,14 @@ public class SecurityConfig {
     SecurityWebFilterChain springWebFilterChain(ServerHttpSecurity http) throws Exception {
         http.csrf().disable();
         http.formLogin().disable();
+        http.httpBasic().disable();
+        http.logout().disable();
 
         return http
                 .authenticationManager(this.authenticationManager)
                 .securityContextRepository(this.securityContextRepository)
+                .authorizeExchange().pathMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                .and()
                 .authorizeExchange().pathMatchers("/auth").permitAll()
                 .and()
                 .authorizeExchange().anyExchange().authenticated()
