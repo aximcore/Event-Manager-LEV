@@ -23,7 +23,7 @@ export class FrameComponent implements OnInit {
             this.loggedIn = value;
         }, error => {
         });
-        this.userService.getCurrentUser().subscribe();
+        this.userService.getCurrentUser().subscribe(() => {}, () => {});
     }
 
     logOut() {
