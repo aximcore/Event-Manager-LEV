@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Document(collection = "event")
@@ -19,6 +20,7 @@ public class Event {
     private LocalDateTime endDate;
     private String locationId;
     private String description;
+    private List<EventPerformerPair> performers;
 
     public static int compareByStartDate(Event lhs, Event rhs) {
         return lhs.getStartDate().compareTo(rhs.getStartDate());

@@ -1,14 +1,19 @@
 package com.r0lex.eventmanager.service;
 
 import com.github.davidmoten.rtree.geometry.Geometries;
-import com.github.davidmoten.rtree.geometry.Point;
+import com.r0lex.eventmanager.model.PerformerLocationAndEvent;
 import com.r0lex.eventmanager.model.database.Event;
+import com.r0lex.eventmanager.model.database.EventPerformerPair;
+import com.r0lex.eventmanager.model.database.Location;
+import com.r0lex.eventmanager.model.database.Performer;
 import com.r0lex.eventmanager.repository.EventRepository;
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,6 +22,8 @@ public class EventService {
     private EventRepository eventRepository;
     @Autowired
     private SpatialService spatialService;
+    @Autowired
+    private PerformerService performerService;
 
     public Flux<Event> getEventsByPlace(String locationId, Optional<Integer> limit) {
         if (limit.isPresent()) {
@@ -49,5 +56,28 @@ public class EventService {
         else
             return spatialService.getCloserPlaces(Geometries.point(longitude, latitude), distanceInKm)
                 .flatMap(location -> getEventById(location.getId()));
+    }
+
+    public Flux<PerformerLocationAndEvent> getEventsGroupByLocation(double latitude, double longitude, double distanceInKm) {
+        Flux<Location> locations = spatialService.getCloserPlaces(Geometries.point(longitude, latitude), distanceInKm);
+        return locations
+                .map(location ->
+                {
+                    PerformerLocationAndEvent temp = new PerformerLocationAndEvent();
+                    temp.setLocation(location);
+                    temp.setEvents(getEventsByPlace(location.getId(), Optional.empty()).collectList().block());
+
+                    List<Performer> performers = new ArrayList<>();
+                    for (Event event : temp.getEvents())
+                        for (EventPerformerPair pair : event.getPerformers()) {
+                            Performer performer = performerService.getPerformerById(pair.getPerformerId()).block();
+                            if(!performers.contains(performer))
+                                performers.add(performer);
+                        }
+
+                    temp.setPerformers(performers);
+                    return temp;
+                })
+                .filter(entry -> !entry.getEvents().isEmpty());
     }
 }

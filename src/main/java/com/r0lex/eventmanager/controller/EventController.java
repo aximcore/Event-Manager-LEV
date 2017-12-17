@@ -1,5 +1,6 @@
 package com.r0lex.eventmanager.controller;
 
+import com.r0lex.eventmanager.model.PerformerLocationAndEvent;
 import com.r0lex.eventmanager.model.database.Event;
 import com.r0lex.eventmanager.service.EventService;
 import org.bson.types.ObjectId;
@@ -48,4 +49,10 @@ public class EventController {
         return eventService.getEventsByPlace(location, limit);
     }
 
+    @GetMapping("/groupByLocation")
+    public Flux<PerformerLocationAndEvent> getEventsGroupByLocation(@RequestParam("latitude") double latitude,
+                                                                    @RequestParam("longitude") double longitude,
+                                                                    @RequestParam("distance") double distance) {
+        return eventService.getEventsGroupByLocation(latitude, longitude, distance);
+    }
 }
