@@ -2,10 +2,10 @@ import {Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'event-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.css']
+    templateUrl: './frame-home.component.html',
+    styleUrls: ['./frame-home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class FrameHomeComponent implements OnInit {
 
     constructor() {
     }

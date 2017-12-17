@@ -36,7 +36,6 @@ export class UserService {
                 });
             } else {
                 this.loggedInSubject.next(false);
-                response.error(null);
                 response.complete();
             }
         });

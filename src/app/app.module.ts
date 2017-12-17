@@ -5,13 +5,13 @@ import {
     MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatPaginatorModule, MatSidenavModule,
     MatSortModule, MatTableModule,
     MatToolbarModule
-} from '@angular/material'
+} from '@angular/material';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import {AdminModule} from './admin';
 import {AppComponent} from './app.component';
 import {routing} from './app.routing';
-import {HomeComponent} from './home/home.component';
+import {FrameHomeComponent} from './frame/frame-home/frame-home.component';
 import {LocationService, EventService, UserService} from './service';
 import {FrameComponent} from './frame/frame.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -43,7 +43,7 @@ import {TokenInterceptor} from './interceptors/token.interceptor';
     ],
     declarations: [
         AppComponent,
-        HomeComponent,
+        FrameHomeComponent,
         FrameComponent,
         FrameLoginComponent,
         FrameRegisterComponent,

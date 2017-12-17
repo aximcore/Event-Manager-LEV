@@ -78,7 +78,8 @@
           var stickyId = stickyElement.attr('id');
           var wrapper = $('<div></div>')
             .attr('id', stickyId + '-sticky-wrapper')
-            .addClass(o.wrapperClassName);
+            .addClass(o.wrapperClassName)
+            .css('width', '100%');
           stickyElement.wrapAll(wrapper);
 
           if (o.center) {

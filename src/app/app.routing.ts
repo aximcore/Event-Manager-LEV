@@ -1,6 +1,6 @@
 ﻿import {Routes, RouterModule} from '@angular/router';
 
-import {HomeComponent} from './home/home.component';
+import {FrameHomeComponent} from './frame/frame-home/frame-home.component';
 import {AdminGuard, AdminInverseGuard} from './admin/guards';
 import {AdminLoginComponent} from './admin/admin-login/admin-login.component';
 import {AdminLocationsComponent} from './admin/admin-locations/admin-locations.component';
@@ -11,7 +11,7 @@ import {AdminEventsComponent} from './admin/admin-events/admin-events.component'
 const appRoutes: Routes = [
     {
         path: '', component: FrameComponent, children: [
-            {path: '', component: HomeComponent}
+            {path: '', component: FrameHomeComponent}
             //{path: 'events', component:},
             //{path: 'events/{:id}', component: }
         ]
