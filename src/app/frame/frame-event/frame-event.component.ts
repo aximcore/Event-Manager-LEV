@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {EventService} from '../../service/event.service';
-import {Event} from '../../model';
+import {EventObject} from '../../model';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
 @Component({
@@ -20,7 +20,7 @@ export class FrameEventComponent implements OnInit {
 
     ngOnInit() {
         this.eventService.findAll().subscribe(events => {
-            this.dataSource = new MatTableDataSource<Event>(events);
+            this.dataSource = new MatTableDataSource<EventObject>(events);
             this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;
         });

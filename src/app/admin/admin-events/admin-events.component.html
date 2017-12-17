@@ -1,5 +1,5 @@
 <mat-toolbar>
-    <h2>Locations</h2>
+    <h2>Events</h2>
 </mat-toolbar>
 <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
@@ -11,14 +11,9 @@
         <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="city">
+    <ng-container matColumnDef="action">
         <mat-header-cell *matHeaderCellDef mat-sort-header> City</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.city}}</mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="amenity">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Amenity</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.amenity}}</mat-cell>
+        <mat-cell *matCellDef="let element"> <button routerLink="/admin/events/edit/{{ element.id }}"><mat-icon>mode_edit</mat-icon></button></mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

@@ -1,0 +1,23 @@
+<mat-toolbar>
+    <h2>Event editor</h2>
+</mat-toolbar>
+
+<form (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <input matInput [(ngModel)]="event.name" name="name" placeholder="Name" autofocus>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="event.startDate" [matDatepicker]="startDatePicker" name="startDate" placeholder="Start Date">
+        <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="event.endDate" [matDatepicker]="endDatePicker" name="endDate" placeholder="End Date">
+        <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #endDatePicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="event.description" name="description" placeholder="Description">
+    </mat-form-field>
+    <button mat-raised-button>Save</button>
+</form>

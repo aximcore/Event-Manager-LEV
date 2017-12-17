@@ -4,7 +4,8 @@ import {FormsModule} from '@angular/forms';
 import {
     MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatPaginatorModule, MatSidenavModule,
     MatSortModule, MatTableModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDatepickerModule,
 } from '@angular/material';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
@@ -40,6 +41,7 @@ import {TokenInterceptor} from './interceptors/token.interceptor';
         MatSortModule,
         MatTableModule,
         MatListModule,
+        MatDatepickerModule
     ],
     declarations: [
         AppComponent,

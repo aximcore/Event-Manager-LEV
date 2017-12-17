@@ -4,7 +4,9 @@ import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
-    MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatPaginatorModule, MatSidenavModule,
+    MatButtonModule, MatCardModule, MatDatepickerModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule,
+    MatNativeDateModule,
+    MatPaginatorModule, MatSidenavModule,
     MatSortModule,
     MatTableModule,
     MatToolbarModule
@@ -15,6 +17,7 @@ import {AdminLoginComponent} from './admin-login/admin-login.component';
 import {AdminLocationsComponent} from './admin-locations/admin-locations.component';
 import {AdminFrameComponent} from './admin-frame/admin-frame.component';
 import {AdminEventsComponent} from './admin-events/admin-events.component';
+import {AdminEventsEditComponent} from './admin-events/edit/admin-events-edit.component';
 
 @NgModule({
     exports: [
@@ -38,12 +41,15 @@ import {AdminEventsComponent} from './admin-events/admin-events.component';
         MatSortModule,
         MatTableModule,
         MatListModule,
+        MatDatepickerModule,
+        MatNativeDateModule
     ],
     declarations: [
         AdminLoginComponent,
         AdminLocationsComponent,
         AdminFrameComponent,
-        AdminEventsComponent
+        AdminEventsComponent,
+        AdminEventsEditComponent
     ],
     providers: [
         AdminGuard,

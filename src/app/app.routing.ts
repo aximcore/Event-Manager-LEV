@@ -7,6 +7,7 @@ import {AdminLocationsComponent} from './admin/admin-locations/admin-locations.c
 import {AdminFrameComponent} from './admin/admin-frame/admin-frame.component';
 import {FrameComponent} from './frame/frame.component';
 import {AdminEventsComponent} from './admin/admin-events/admin-events.component';
+import {AdminEventsEditComponent} from './admin/admin-events/edit/admin-events-edit.component';
 
 const appRoutes: Routes = [
     {
@@ -22,7 +23,9 @@ const appRoutes: Routes = [
                 path: '', component: AdminFrameComponent, canActivate: [AdminGuard], children: [
                     {path: '', redirectTo: '/admin/locations', pathMatch: 'full'},
                     {path: 'locations', component: AdminLocationsComponent},
-                    {path: 'events', component: AdminEventsComponent}
+                    {path: 'events', component: AdminEventsComponent},
+                    {path: 'events/edit', component: AdminEventsEditComponent},
+                    {path: 'events/edit/:id', component: AdminEventsEditComponent}
                 ],
             },
             {path: 'login', component: AdminLoginComponent, canActivate: [AdminInverseGuard]}

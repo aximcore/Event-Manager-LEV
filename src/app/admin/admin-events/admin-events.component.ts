@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Location} from '../../model';
-import {LocationService} from '../../service';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {EventObject} from '../../model';
+import {EventService} from '../../service';
 
 @Component({
     selector: 'app-admin-events',
@@ -10,17 +10,17 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 })
 export class AdminEventsComponent implements OnInit {
 
-    displayedColumns = ['name', 'city', 'amenity'];
+    displayedColumns = ['name', 'action'];
     dataSource = null;
     @ViewChild(MatSort) sort: MatSort;
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
-    constructor(private locationService: LocationService) {
+    constructor(private eventService: EventService) {
     }
 
     ngOnInit() {
-        this.locationService.findAll().subscribe(locations => {
-            this.dataSource = new MatTableDataSource<Location>(locations);
+        this.eventService.findAll().subscribe(events => {
+            this.dataSource = new MatTableDataSource<EventObject>(events);
             this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;
         });
