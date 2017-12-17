@@ -7,6 +7,8 @@ import {AppComponent} from './app.component';
 import {routing} from './app.routing';
 import {HomeComponent} from './home/home.component';
 import {LocationService} from './service';
+import {EventService} from './service/event.service';
+import {UserService} from './service/user.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FrameComponent} from './frame/frame.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -17,7 +19,8 @@ import {
     MatToolbarModule
 } from '@angular/material';
 import {FrameRegisterComponent} from './frame/frame-register/frame-register.component';
-import {UserService} from './service/user.service';
+import {FrameEventComponent} from './frame/frame-event/frame-event.component';
+
 
 @NgModule({
     imports: [
@@ -44,10 +47,12 @@ import {UserService} from './service/user.service';
         HomeComponent,
         FrameComponent,
         FrameLoginComponent,
-        FrameRegisterComponent
+        FrameRegisterComponent,
+        FrameEventComponent
     ],
     providers: [
         LocationService,
+        EventService,
         UserService
     ],
     bootstrap: [AppComponent]

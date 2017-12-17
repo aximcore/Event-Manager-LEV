@@ -13,6 +13,8 @@ const appRoutes: Routes = [
         path: '', component: FrameComponent, children: [
             {path: '', component: HomeComponent},
             {path: 'login', component: FrameLoginComponent}
+            //{path: 'events', component:},
+            //{path: 'events/{:id}', component: }
         ]
     },
     {
