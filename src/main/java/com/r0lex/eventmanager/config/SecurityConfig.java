@@ -33,9 +33,9 @@ public class SecurityConfig {
                 .securityContextRepository(this.securityContextRepository)
                 .authorizeExchange().pathMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .and()
-                .authorizeExchange().pathMatchers("/auth").permitAll()
-                .and()
-                .authorizeExchange().anyExchange().authenticated()
+                //.authorizeExchange().pathMatchers("").authenticated()
+                //.and()
+                .authorizeExchange().anyExchange().permitAll()
                 .and()
                 .build();
     }
