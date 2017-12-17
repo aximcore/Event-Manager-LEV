@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Cookie} from 'ng2-cookies';
 import {Router} from '@angular/router';
+import {UserService} from '../../service';
 
 @Component({
     selector: 'app-admin-frame',
@@ -9,14 +10,14 @@ import {Router} from '@angular/router';
 })
 export class AdminFrameComponent implements OnInit {
 
-    constructor(private router: Router) {
+    constructor(private router: Router, private userService: UserService) {
     }
 
     ngOnInit() {
     }
 
     logOut() {
-        Cookie.set('loggedin', 'false');
+        this.userService.logOut();
         this.router.navigate(['admin', 'login']);
     }
 

@@ -6,13 +6,12 @@ import {AdminLoginComponent} from './admin/admin-login/admin-login.component';
 import {AdminLocationsComponent} from './admin/admin-locations/admin-locations.component';
 import {AdminFrameComponent} from './admin/admin-frame/admin-frame.component';
 import {FrameComponent} from './frame/frame.component';
-import {FrameLoginComponent} from './frame/frame-login/frame-login.component';
+import {AdminEventsComponent} from './admin/admin-events/admin-events.component';
 
 const appRoutes: Routes = [
     {
         path: '', component: FrameComponent, children: [
-            {path: '', component: HomeComponent},
-            {path: 'login', component: FrameLoginComponent}
+            {path: '', component: HomeComponent}
             //{path: 'events', component:},
             //{path: 'events/{:id}', component: }
         ]
@@ -22,7 +21,8 @@ const appRoutes: Routes = [
             {
                 path: '', component: AdminFrameComponent, canActivate: [AdminGuard], children: [
                     {path: '', redirectTo: '/admin/locations', pathMatch: 'full'},
-                    {path: 'locations', component: AdminLocationsComponent}
+                    {path: 'locations', component: AdminLocationsComponent},
+                    {path: 'events', component: AdminEventsComponent}
                 ],
             },
             {path: 'login', component: AdminLoginComponent, canActivate: [AdminInverseGuard]}

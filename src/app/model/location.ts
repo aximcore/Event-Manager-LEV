@@ -1,8 +1,8 @@
 export interface Location {
-    _id: {};
-    name: String;
-    amenity: String;
-    point: String;
-    website: String;
-    wheelchair: String;
+    id: string;
+    name: string;
+    amenity: string;
+    point: string;
+    website: string;
+    wheelchair: string;
 }

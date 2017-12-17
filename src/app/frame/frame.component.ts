@@ -19,8 +19,11 @@ export class FrameComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.userService.loggedIn.subscribe(value => this.loggedIn = value);
-        this.userService.getCurrentUser();
+        this.userService.loggedIn.subscribe(value => {
+            this.loggedIn = value;
+        }, error => {
+        });
+        this.userService.getCurrentUser().subscribe();
     }
 
     logOut() {

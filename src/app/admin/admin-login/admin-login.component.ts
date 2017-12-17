@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Cookie} from 'ng2-cookies';
+import {UserService} from '../../service/user.service';
 
 @Component({
     selector: 'app-admin-login',
@@ -9,22 +10,19 @@ import {Cookie} from 'ng2-cookies';
 })
 export class AdminLoginComponent implements OnInit {
 
-    public username: String;
-    public password: String;
+    public username: string = '';
+    public password: string = '';
 
-    constructor(private router: Router) {
+    constructor(private router: Router, private userService: UserService) {
     }
 
     ngOnInit() {
     }
 
     onSubmit() {
-        if(this.username == 'admin' && this.password == 'admin') {
-            Cookie.set('loggedin', 'true');
+        this.userService.logIn(this.username, this.password).subscribe(() => {
             this.router.navigate(['admin']);
-        } else {
-            console.error("wrong credentials");
-        }
+        });
     }
 
 }

@@ -14,6 +14,7 @@ import {AdminGuard, AdminInverseGuard} from './guards';
 import {AdminLoginComponent} from './admin-login/admin-login.component';
 import {AdminLocationsComponent} from './admin-locations/admin-locations.component';
 import {AdminFrameComponent} from './admin-frame/admin-frame.component';
+import {AdminEventsComponent} from './admin-events/admin-events.component';
 
 @NgModule({
     exports: [
@@ -41,7 +42,8 @@ import {AdminFrameComponent} from './admin-frame/admin-frame.component';
     declarations: [
         AdminLoginComponent,
         AdminLocationsComponent,
-        AdminFrameComponent
+        AdminFrameComponent,
+        AdminEventsComponent
     ],
     providers: [
         AdminGuard,
