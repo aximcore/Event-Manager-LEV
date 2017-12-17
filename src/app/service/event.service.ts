@@ -12,7 +12,7 @@ export class EventService {
     }
 
     findAll(): Observable<Event[]> {
-        return this.http.get<Event[]>('http://api.event.aio.nestquick.me/event/all');
+        return this.http.get<Event[]>('/event/all');
     }
 
 }

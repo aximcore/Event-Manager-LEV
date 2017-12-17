@@ -9,11 +9,10 @@ import {Observable} from 'rxjs/Observable';
 export class LocationService {
 
     constructor(private http: HttpClient) {
-
     }
 
     findAll(): Observable<Location[]> {
-        return this.http.get<Location[]>('http://api.event.aio.nestquick.me/location/all');
+        return this.http.get<Location[]>('/location/all');
     }
 
 }
