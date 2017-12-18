@@ -6,6 +6,11 @@
 </mat-form-field>
 <mat-table #table [dataSource]="dataSource" matSort>
 
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}}</mat-cell>
+    </ng-container>
+
     <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Name</mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>

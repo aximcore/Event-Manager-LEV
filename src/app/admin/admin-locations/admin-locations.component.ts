@@ -10,7 +10,7 @@ import {Location} from '../../model';
 })
 export class AdminLocationsComponent implements OnInit {
 
-    displayedColumns = ['name', 'city', 'amenity'];
+    displayedColumns = ['id', 'name', 'city', 'amenity'];
     dataSource = null;
     @ViewChild(MatSort) sort: MatSort;
     @ViewChild(MatPaginator) paginator: MatPaginator;
