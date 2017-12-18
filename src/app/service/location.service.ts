@@ -17,7 +17,7 @@ export class LocationService {
     }
 
     findById(id: string): Observable<Location> {
-        return this.http.get<Location>('/location', {params: {id: id}});
+        return this.http.get<Location>('/location/single', {params: {id: id}});
     }
 
     findByName(name: string): Observable<Location> {
