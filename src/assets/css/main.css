@@ -60,6 +60,10 @@ p{
   color: #2fa68e;
 }
 
+.color-black {
+  color: #000000;
+}
+
 ::selection {
   background: #fff;
   color:#2fa68e;
@@ -427,8 +431,7 @@ p{
   background: #2fa68e no-repeat center center;
 }
 
-
-/* EventObject */
+/*Event List*/
 
 .event-page{
   position:relative;
@@ -442,6 +445,14 @@ p{
   margin-bottom: 30px;
   background-color: #fff;
 }
+
+/*Event details*/
+
+.event-details p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+
 
 /* Contact */
 

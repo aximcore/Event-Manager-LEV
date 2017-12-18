@@ -19,9 +19,9 @@
         <mat-cell *matCellDef="let element"> {{element.endDate}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="description">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Description</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.description}}</mat-cell>
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> Details</mat-header-cell>
+        <mat-cell *matCellDef="let element"> <a routerLink="/event/{{element.id}}">Details</a></mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

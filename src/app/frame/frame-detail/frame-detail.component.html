@@ -1,0 +1,12 @@
+<div class="container event-details my-5">
+    <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-10 offset-lg-1 offset-md-1 offset-sm-1">
+            <div *ngIf="event">
+                <h1 class="event-title color-green">{{event.name}}</h1>
+                <p class="event-description color-black text-justify" innerHTML="{{event.description}}"></p>
+
+                <img *ngFor="let image of gallery" src="{{image}}" class="img-responsive center-block"/>
+            </div>
+        </div>
+    </div>
+</div>

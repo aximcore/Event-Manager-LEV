@@ -8,13 +8,14 @@ import {AdminFrameComponent} from './admin/admin-frame/admin-frame.component';
 import {FrameComponent} from './frame/frame.component';
 import {AdminEventsComponent} from './admin/admin-events/admin-events.component';
 import {AdminEventsEditComponent} from './admin/admin-events/edit/admin-events-edit.component';
+import {FrameDetailComponent} from './frame/frame-detail/frame-detail.component';
 
 const appRoutes: Routes = [
     {
         path: '', component: FrameComponent, children: [
-            {path: '', component: FrameHomeComponent}
+            {path: '', component: FrameHomeComponent},
             //{path: 'events', component:},
-            //{path: 'events/{:id}', component: }
+            {path: 'event/:id', component: FrameDetailComponent}
         ]
     },
     {

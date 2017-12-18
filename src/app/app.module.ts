@@ -21,6 +21,7 @@ import {FrameRegisterComponent} from './frame/frame-register/frame-register.comp
 import {FrameEventComponent} from './frame/frame-event/frame-event.component';
 import {MockInterceptor} from './interceptors/mock.interceptor';
 import {TokenInterceptor} from './interceptors/token.interceptor';
+import {FrameDetailComponent} from './frame/frame-detail/frame-detail.component';
 
 @NgModule({
     imports: [
@@ -49,7 +50,8 @@ import {TokenInterceptor} from './interceptors/token.interceptor';
         FrameComponent,
         FrameLoginComponent,
         FrameRegisterComponent,
-        FrameEventComponent
+        FrameEventComponent,
+        FrameDetailComponent
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: MockInterceptor, multi: true},

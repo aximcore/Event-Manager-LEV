@@ -10,7 +10,7 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 })
 export class FrameEventComponent implements OnInit {
 
-    displayedColumns = ['name', 'startDate', 'endDate', 'description'];
+    displayedColumns = ['name', 'startDate', 'endDate', 'id'];
     dataSource = null;
     @ViewChild(MatSort) sort: MatSort;
     @ViewChild(MatPaginator) paginator: MatPaginator;
