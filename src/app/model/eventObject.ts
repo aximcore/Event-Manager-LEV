@@ -5,4 +5,6 @@ export interface EventObject {
     endDate: string;
     locationId: string;
     description: string;
+    performers: any[];
+    location: {};
 }
