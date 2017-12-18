@@ -9,6 +9,7 @@ import {FrameComponent} from './frame/frame.component';
 import {AdminEventsComponent} from './admin/admin-events/admin-events.component';
 import {AdminEventsEditComponent} from './admin/admin-events/edit/admin-events-edit.component';
 import {FrameDetailComponent} from './frame/frame-detail/frame-detail.component';
+import {AdminPerformersComponent} from './admin/admin-performers/admin-performers.component';
 
 const appRoutes: Routes = [
     {
@@ -26,7 +27,9 @@ const appRoutes: Routes = [
                     {path: 'locations', component: AdminLocationsComponent},
                     {path: 'events', component: AdminEventsComponent},
                     {path: 'events/edit', component: AdminEventsEditComponent},
-                    {path: 'events/edit/:id', component: AdminEventsEditComponent}
+                    {path: 'events/edit/:id', component: AdminEventsEditComponent},
+
+                    {path: 'perfomers', component: AdminPerformersComponent}
                 ],
             },
             {path: 'login', component: AdminLoginComponent, canActivate: [AdminInverseGuard]}

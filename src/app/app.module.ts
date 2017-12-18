@@ -22,6 +22,7 @@ import {FrameEventComponent} from './frame/frame-event/frame-event.component';
 import {MockInterceptor} from './interceptors/mock.interceptor';
 import {TokenInterceptor} from './interceptors/token.interceptor';
 import {FrameDetailComponent} from './frame/frame-detail/frame-detail.component';
+import {PerformerService} from './service/performer.service';
 
 @NgModule({
     imports: [
@@ -58,7 +59,8 @@ import {FrameDetailComponent} from './frame/frame-detail/frame-detail.component'
         {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
         LocationService,
         EventService,
-        UserService
+        UserService,
+        PerformerService
     ],
     bootstrap: [AppComponent]
 })

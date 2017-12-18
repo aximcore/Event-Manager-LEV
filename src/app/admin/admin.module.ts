@@ -18,6 +18,7 @@ import {AdminLocationsComponent} from './admin-locations/admin-locations.compone
 import {AdminFrameComponent} from './admin-frame/admin-frame.component';
 import {AdminEventsComponent} from './admin-events/admin-events.component';
 import {AdminEventsEditComponent} from './admin-events/edit/admin-events-edit.component';
+import {AdminPerformersComponent} from './admin-performers/admin-performers.component';
 
 @NgModule({
     exports: [
@@ -49,7 +50,8 @@ import {AdminEventsEditComponent} from './admin-events/edit/admin-events-edit.co
         AdminLocationsComponent,
         AdminFrameComponent,
         AdminEventsComponent,
-        AdminEventsEditComponent
+        AdminEventsEditComponent,
+        AdminPerformersComponent
     ],
     providers: [
         AdminGuard,
