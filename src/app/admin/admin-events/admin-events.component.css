@@ -1,0 +1,9 @@
+.mat-table{
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-input-container {
+    padding: 0 20px;
+}
