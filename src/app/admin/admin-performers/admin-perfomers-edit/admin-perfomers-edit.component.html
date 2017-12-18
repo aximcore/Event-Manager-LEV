@@ -1,0 +1,27 @@
+<mat-toolbar>
+    <h2>Perfomer editor</h2>
+</mat-toolbar>
+
+<form (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <input matInput [(ngModel)]="performer.name" name="name" placeholder="Name" autofocus>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select [(ngModel)]="performer.genre" name="genre" placeholder="Genre">
+            <mat-option *ngFor="let genre of genres" [value]="genre.value">
+                {{ genre.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput [(ngModel)]="performer.website" name="website" placeholder="Website">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput [(ngModel)]="performer.description" name="description" placeholder="Description">
+    </mat-form-field>
+
+    <button mat-raised-button>Save</button>
+</form>

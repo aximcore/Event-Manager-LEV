@@ -13,7 +13,7 @@ import {AdminModule} from './admin';
 import {AppComponent} from './app.component';
 import {routing} from './app.routing';
 import {FrameHomeComponent} from './frame/frame-home/frame-home.component';
-import {LocationService, EventService, UserService} from './service';
+import {LocationService, EventService, UserService, PerformerService} from './service';
 import {FrameComponent} from './frame/frame.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FrameLoginComponent} from './frame/frame-login/frame-login.component';
@@ -22,7 +22,6 @@ import {FrameEventComponent} from './frame/frame-event/frame-event.component';
 import {MockInterceptor} from './interceptors/mock.interceptor';
 import {TokenInterceptor} from './interceptors/token.interceptor';
 import {FrameDetailComponent} from './frame/frame-detail/frame-detail.component';
-import {PerformerService} from './service/performer.service';
 
 @NgModule({
     imports: [

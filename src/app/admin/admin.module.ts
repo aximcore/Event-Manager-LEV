@@ -5,11 +5,7 @@ import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
     MatButtonModule, MatCardModule, MatDatepickerModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule,
-    MatNativeDateModule,
-    MatPaginatorModule, MatSidenavModule,
-    MatSortModule,
-    MatTableModule,
-    MatToolbarModule
+    MatNativeDateModule, MatPaginatorModule, MatSelectModule, MatSidenavModule, MatSortModule, MatTableModule, MatToolbarModule
 } from '@angular/material';
 
 import {AdminGuard, AdminInverseGuard} from './guards';
@@ -19,6 +15,7 @@ import {AdminFrameComponent} from './admin-frame/admin-frame.component';
 import {AdminEventsComponent} from './admin-events/admin-events.component';
 import {AdminEventsEditComponent} from './admin-events/edit/admin-events-edit.component';
 import {AdminPerformersComponent} from './admin-performers/admin-performers.component';
+import { AdminPerfomersEditComponent } from './admin-performers/admin-perfomers-edit/admin-perfomers-edit.component';
 
 @NgModule({
     exports: [
@@ -39,6 +36,7 @@ import {AdminPerformersComponent} from './admin-performers/admin-performers.comp
         MatToolbarModule,
         MatPaginatorModule,
         MatSidenavModule,
+        MatSelectModule,
         MatSortModule,
         MatTableModule,
         MatListModule,
@@ -51,7 +49,8 @@ import {AdminPerformersComponent} from './admin-performers/admin-performers.comp
         AdminFrameComponent,
         AdminEventsComponent,
         AdminEventsEditComponent,
-        AdminPerformersComponent
+        AdminPerformersComponent,
+        AdminPerfomersEditComponent
     ],
     providers: [
         AdminGuard,

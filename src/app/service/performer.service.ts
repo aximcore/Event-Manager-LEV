@@ -13,4 +13,11 @@ export class PerformerService {
         return this.http.get<PerformerObject[]>('/performer/all');
     }
 
+    findById(id: string): Observable<PerformerObject> {
+        return this.http.get<PerformerObject>('/performer', {params: {id: id}});
+    }
+
+    save(performer: PerformerObject): void {
+        this.http.post('/performer', performer).subscribe();
+    }
 }
