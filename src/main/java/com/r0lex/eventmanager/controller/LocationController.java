@@ -2,6 +2,7 @@ package com.r0lex.eventmanager.controller;
 
 import com.github.davidmoten.rtree.geometry.Geometries;
 import com.r0lex.eventmanager.model.database.Location;
+import com.r0lex.eventmanager.model.database.Performer;
 import com.r0lex.eventmanager.service.SpatialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.Optional;
 
@@ -35,6 +37,12 @@ public class LocationController {
             );
     }
 
+
+    @GetMapping("/single")
+    public Mono<Location> getById(@RequestParam("id") String id) {
+        return spatialService.getLocationById(id);
+    }
+
     @GetMapping("/all")
     public Flux<Location> getLocations() {
         return spatialService.getLocations();
@@ -44,4 +52,5 @@ public class LocationController {
     public Flux<Location> getLocationsByName(@RequestParam("name") String name) {
         return spatialService.getLocationByName(name);
     }
+
 }

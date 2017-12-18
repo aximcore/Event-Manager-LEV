@@ -10,6 +10,7 @@ import com.github.davidmoten.rtree.geometry.Geometries;
 import com.github.davidmoten.rtree.geometry.Point;
 import com.github.davidmoten.rtree.geometry.Rectangle;
 import com.r0lex.eventmanager.model.database.Location;
+import com.r0lex.eventmanager.model.database.Performer;
 import com.r0lex.eventmanager.repository.LocationsRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import rx.Observable;
 import rx.Single;
 
@@ -81,6 +83,10 @@ public class SpatialService {
                 .toBlocking()
                 .single()
         );
+    }
+
+    public Mono<Location> getLocationById(String id) {
+        return locationsRepository.findById(id);
     }
 
     public Flux<Location> getCloserPlacesByCategory(final Point gpsPoint,
