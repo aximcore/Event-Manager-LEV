@@ -356,7 +356,7 @@ p{
   position:relative;
   margin:0 auto;
   border:8px solid #ebebeb;
-  background: #f3f3f3 no-repeat center center;
+  background: url('../img/icons/calendar-icon.png') #f3f3f3 no-repeat center center;
   -moz-border-radius:174px;
   -webkit-border-radius:174px;
   border-radius: 174px;
@@ -370,7 +370,7 @@ p{
 }
 
 .about-us .column-one .circle-one:hover{
-  background: #2fa68e no-repeat center center;
+  background: url('../img/icons/calendar-icon.png') #2fa68e no-repeat center center;
 
 }
 
@@ -385,7 +385,7 @@ p{
   position:relative;
   margin:0 auto;
   border:8px solid #ebebeb;
-  background: #f3f3f3 no-repeat center center;
+  background: url('../img/icons/man-singing.png') #f3f3f3 no-repeat center center;
   -moz-border-radius:174px;
   -webkit-border-radius:174px;
   border-radius: 174px;
@@ -399,7 +399,7 @@ p{
 }
 
 .about-us .column-two .circle-two:hover{
-  background: #2fa68e no-repeat center center;
+  background: url('../img/icons/man-singing.png') #2fa68e no-repeat center center;
 }
 
 
@@ -453,6 +453,52 @@ p{
   font-size: 18px;
 }
 
+/* Portfolio */
+
+.portfolio {
+  position: relative;
+  width: 100%;
+  background: #23282d;
+}
+
+.portfolio h1 {
+  color: #fff;
+}
+
+.portfolio hr {
+  color: #fff;
+  background-color: #fff;
+}
+
+.grid .text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #2fa68e;
+  z-index: 2;
+  opacity:0;
+  top: 0;
+}
+
+.grid p {
+  font-size: 29px;
+  text-align:center;
+  margin-top:80px;
+  font-weight: bold;
+  color: #FFF;
+}
+
+.grid p.description {
+  font-size: 15px;
+  margin-top:20px;
+  text-align:center;
+  font-weight: 400;
+  color: #FFF;
+}
+
+.clear {
+  clear:both;
+}
 
 /* Contact */
 
