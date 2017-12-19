@@ -1,0 +1,9 @@
+.btn-green {
+    background-color: #2fa68e;
+    color: #fff;
+}
+
+.btn-green:hover, .btn-green:active {
+    background-color: #207463;
+    cursor: pointer;
+}
