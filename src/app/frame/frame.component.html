@@ -44,9 +44,9 @@
 
             <div class="menu-content">
 
-                <div class="logo">Loremipsum</div>
+                <a href="/" class="logo">Loremipsum</a>
 
-                <div class="icon"><a href="#"><img src="../assets/img/icons/menu-media.png"/></a></div>
+                <div class="icon"><a href="#"><img src="../../assets/img/icons/menu-media.png"/></a></div>
 
             </div>
 
@@ -62,8 +62,8 @@
             <a href="#events">
                 <li href="#events">EVENTS</li>
             </a>
-            <a href="#contact">
-                <li href="#">CONTACT</li>
+            <a href="#portfolio">
+                <li href="#portfolio">PORTFOLIO</li>
             </a>
         </ul>
 
@@ -74,12 +74,13 @@
 
             <div class="menu-content">
 
-                <div class="logo">Loremipsum</div>
+                <a href="/" class="logo">Loremipsum</a>
 
                 <ul id="menu">
                     <li><a href="#home">HOME</a></li>
                     <li><a href="#about-us">ABOUT US</a></li>
                     <li><a href="#events">EVENTS</a></li>
+                    <li><a href="#portfolio">PORTFOLIO</a></li>
                     <li><a href="#contact">CONTACT</a></li>
                     <li *ngIf="loggedIn" ><button mat-icon-button (click)="logOut()" class="logout"><mat-icon>exit_to_app</mat-icon></button></li>
                 </ul>

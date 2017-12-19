@@ -15,6 +15,10 @@ a{
   outline:none;
 }
 
+
+.logo {
+    text-decoration: none;
+}
 /*h1{
   font-size:56px;
   color:white;
@@ -236,6 +240,9 @@ p{
   display:none;
 }
 
+ul.menu-click {
+    width: 100%;
+}
 
 .menu-click li {
   position:relative;
@@ -260,8 +267,6 @@ p{
  }
 
 .menu-content ul{
-
-  width:500px;
   left:50%;
   float:right;
   text-align:right;
@@ -504,7 +509,6 @@ p{
 
 .contact{
   position:relative;
-  width:900px;
   margin: 0 auto;
 
 }
