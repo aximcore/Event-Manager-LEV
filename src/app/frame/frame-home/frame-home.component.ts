@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {MatSnackBar} from '@angular/material';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'event-home',
@@ -22,7 +24,7 @@ export class FrameHomeComponent implements OnInit {
         'https://images.pexels.com/photos/433452/pexels-photo-433452.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
     ];
 
-    constructor() {
+    constructor(private snackBar: MatSnackBar, private router: Router) {
     }
 
     ngOnInit() {
@@ -41,6 +43,11 @@ export class FrameHomeComponent implements OnInit {
         }
 
         return array;
+    }
+
+    onSubmit(){
+        this.snackBar.open('The message has been sent!', '', {duration: 2000, horizontalPosition: 'center'});
+        this.router.navigate(['']);
     }
 
 }
