@@ -23,8 +23,8 @@
 </section>
 
 
-<section class="container-fluid noPadding event-page parallax-background">
-    <section class="container" id="events">
+<section class="container-fluid noPadding event-page parallax-background py-5">
+    <section class="container py-3" id="events">
         <app-frame-event></app-frame-event>
     </section>
 </section>
@@ -32,7 +32,7 @@
 <section class="portfolio" id="portfolio">
 
 
-    <div class="portfolio-margin container">
+    <div class="portfolio-margin container py-4">
 
         <h1>PORTFOLIO</h1>
         <hr/>
@@ -54,17 +54,17 @@
 
 </section>
 
-<section class="contact col-md-12 col-sm-12 col-xs-12 mb-2" id="contact">
+<section class="contact col-md-12 col-sm-12 col-xs-12 pb-5 hidden-xs" id="contact">
     <h1>Contact</h1>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 offset-lg-3 offset-md-3 offset-sm-3 offset-xs-3">
         <hr/>
     </div>
 
-    <div class="content col-lg-8 col-md-8 col-sm-8 col-xs-8 offset-lg-2 offset-md-2 offset-sm-2 offset-xs-2">
+    <div class="content col-lg-4 col-md-4 col-sm-4 col-xs-12 offset-lg-4 offset-md-4 offset-sm-4">
 
-        <div class="form">
+        <div class="form pb-3">
 
-            <form action="#" method="post" enctype="text/plain">
+            <form (ngSubmit)="onSubmit()">
 
                 <div class="form-group">
                     <input name="your-name" class="form-control" id="your-name" placeholder="Név"/>
@@ -78,11 +78,9 @@
                     <textarea id="message" class="form-control" name="message" placeholder="Üzenet"></textarea>
                 </div>
 
-                <a href="#">
-                    <div class="button">
-                        <span>Küldés</span>
-                    </div>
-                </a>
+                <button class="btn btn-green">
+                    Küldés
+                </button>
 
             </form>
 
