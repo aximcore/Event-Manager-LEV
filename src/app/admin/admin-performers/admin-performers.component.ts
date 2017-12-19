@@ -10,7 +10,7 @@ import {PerformerObject} from '../../model/performerObject';
 })
 export class AdminPerformersComponent implements OnInit {
 
-    displayedColumns = ['id', 'name', 'genre', 'website'];
+    displayedColumns = ['id', 'name', 'genre', 'website', 'action'];
     dataSource = null;
     @ViewChild(MatSort) sort: MatSort;
     @ViewChild(MatPaginator) paginator: MatPaginator;

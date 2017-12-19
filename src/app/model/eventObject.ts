@@ -6,5 +6,6 @@ export interface EventObject {
     locationId: string;
     description: string;
     performers: any[];
+	performerIds: any;
     location: {};
 }

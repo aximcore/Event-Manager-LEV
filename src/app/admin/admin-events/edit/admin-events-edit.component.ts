@@ -21,6 +21,7 @@ export class AdminEventsEditComponent implements OnInit {
         this.route.params.subscribe(params => {
             this.eventService.findById(params['id']).subscribe(event => {
                 if (event) {
+			event.performerIds = event.performers.map(x => x.performerId).join(',');
                     this.event = event;
                 }
             });
@@ -28,6 +29,11 @@ export class AdminEventsEditComponent implements OnInit {
     }
 
     onSubmit() {
+	let performers = this.event.performerIds.split(',');
+	this.event.performers = [];
+	for (let p of performers) {
+		this.event.performers.push({performerId: p});
+	}
         this.eventService.save(this.event);
         this.snackBar.open('Successfully saved!', '', {duration: 2000, horizontalPosition: 'center'});
         this.router.navigate(['admin', 'events']);
