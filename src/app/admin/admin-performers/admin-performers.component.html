@@ -1,5 +1,9 @@
 <mat-toolbar>
   <h2>Perfomers</h2>
+  <span>&nbsp;|&nbsp;</span>
+  <a class="btn btn-danger" routerLink="/admin/performers/edit">
+    <span>Add performer</span>
+  </a>
 </mat-toolbar>
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
