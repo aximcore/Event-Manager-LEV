@@ -1,0 +1,18 @@
+.gallery-holder {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.event-details p {
+    line-height: normal;
+}
+
+.title-holder {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.title-holder img {
+    border: 10px solid #2fa68e;
+}
