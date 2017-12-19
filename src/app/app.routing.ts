@@ -11,13 +11,16 @@ import {AdminEventsEditComponent} from './admin/admin-events/edit/admin-events-e
 import {FrameDetailComponent} from './frame/frame-detail/frame-detail.component';
 import {AdminPerformersComponent} from './admin/admin-performers/admin-performers.component';
 import {AdminPerfomersEditComponent} from './admin/admin-performers/admin-perfomers-edit/admin-perfomers-edit.component';
+import {FrameEventComponent} from './frame/frame-event/frame-event.component';
+import {FramePerformerComponent} from './frame/frame-performer/frame-performer.component';
 
 const appRoutes: Routes = [
     {
         path: '', component: FrameComponent, children: [
             {path: '', component: FrameHomeComponent},
-            //{path: 'events', component:},
-            {path: 'event/:id', component: FrameDetailComponent}
+            {path: 'events', component: FrameEventComponent},
+            {path: 'event/:id', component: FrameDetailComponent},
+            {path: 'performers', component: FramePerformerComponent}
         ]
     },
     {
