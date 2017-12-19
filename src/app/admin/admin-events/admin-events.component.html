@@ -1,5 +1,9 @@
 <mat-toolbar>
     <h2>Events</h2>
+    <span>&nbsp;|&nbsp;</span>
+    <a class="btn btn-danger" routerLink="/admin/events/edit">
+        <span>Add event</span>
+    </a>
 </mat-toolbar>
 <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
