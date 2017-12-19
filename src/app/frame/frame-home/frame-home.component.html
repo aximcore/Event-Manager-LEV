@@ -7,21 +7,16 @@
         <p class="title">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
         <div class="col-md-12">
             <div class="row">
-                <div class="column-one col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <a href="../events" class="column-one col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="circle-one"></div>
-                    <h2>LOREM<br/>IPSUM</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
-                </div>
-                <div class="column-two col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <h2>EVENTS</h2>
+                    <p>Check out the upcoming events!</p>
+                </a>
+                <a href="../performers" class="column-two col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="circle-two"></div>
-                    <h2>LOREM<br/>IPSUM</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
-                </div>
-                <div class="column-three col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="circle-three"></div>
-                    <h2>LOREM<br/>IPSUM</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
-                </div>
+                    <h2>PERFORMERS</h2>
+                    <p>Click above and check our performers!</p>
+                </a>
             </div>
         </div>
     </section>
@@ -30,12 +25,33 @@
 
 <section class="container-fluid noPadding event-page parallax-background">
     <section class="container" id="events">
-        <div class="col-lg-10 col-md-10 col-sm-10 offset-lg-1 offset-md-1 offset-sm-1">
-            <h1>EVENTS</h1>
-            <hr/>
-            <app-frame-event></app-frame-event>
-        </div>
+        <app-frame-event></app-frame-event>
     </section>
+</section>
+
+<section class="portfolio" id="portfolio">
+
+
+    <div class="portfolio-margin container">
+
+        <h1>PORTFOLIO</h1>
+        <hr/>
+
+        <div class="row">
+            <ul class="grid col-lg-12 col-md-12 col-sm-12 my-5" style="display: flex; flex-wrap: wrap;">
+                <li *ngFor="let image of gallery" class="col-lg-4 col-md-4 col-sm-4 noPadding">
+                    <a href="#">
+                        <img src="{{image}}" alt="Portfolio item" class="img-respsonsive" width="100%" height="225px"/>
+                        <div class="text">
+                            <p>PORTFOLIO 1</p>
+                            <p class="description">Lorem ipsum dolor...</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
 </section>
 
 <section class="contact col-md-12 col-sm-12 col-xs-12 mb-2" id="contact">
