@@ -5,7 +5,8 @@ import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
     MatButtonModule, MatCardModule, MatDatepickerModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule,
-    MatNativeDateModule, MatPaginatorModule, MatSelectModule, MatSidenavModule, MatSortModule, MatTableModule, MatToolbarModule
+    MatNativeDateModule, MatPaginatorModule, MatSelectModule, MatSidenavModule, MatSnackBarModule, MatSortModule, MatTableModule,
+    MatToolbarModule
 } from '@angular/material';
 
 import {AdminGuard, AdminInverseGuard} from './guards';
@@ -41,7 +42,8 @@ import { AdminPerfomersEditComponent } from './admin-performers/admin-perfomers-
         MatTableModule,
         MatListModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        MatSnackBarModule
     ],
     declarations: [
         AdminLoginComponent,
